@@ -8,6 +8,11 @@ const Remote = lazy(
 	async () => import('remote/remote-app'),
 );
 
+const RemoteMasterData = lazy(
+	// @ts-ignore
+	async () => import('remote2/remote-app'),
+);
+
 export default () => {
 	useEffect(() => {
 		of('emit')
@@ -42,6 +47,9 @@ export default () => {
 
 			<Suspense fallback="loading...">
 				<Remote />
+			</Suspense>
+			<Suspense fallback="loading...">
+				<RemoteMasterData />
 			</Suspense>
 		</>
 	);
